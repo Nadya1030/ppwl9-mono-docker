@@ -2,9 +2,8 @@ FROM oven/bun:1 AS base
 WORKDIR /app
 
 # Copy workspace manifests dulu (layer caching)
-COPY package.json bun.lock ./
+COPY package.json ./
 COPY apps/backend/package.json ./apps/backend/
-COPY apps/backend/prisma ./apps/backend/prisma
 COPY packages/shared/package.json ./packages/shared/
 
 RUN bun install
